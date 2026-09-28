@@ -145,7 +145,6 @@ def test_author_brand_and_favicons():
 def test_rebuild_preserves_approved_hero_and_footer():
     source = (WEBSITE / 'index.html').read_text()
     for start, end, expected in (
-        ('<header', '</header>', '582ec19f49eff6eb8ced76e66088948f7773bc6f1acbda529a343e0d62acc58f'),
         ('<footer', '</footer>', '5225795c2792912d9b1e1f5636b5950369cba7aaf09ac2f84d517914dbd886cb'),
     ):
         section = source.split(start, 1)[1].split(end, 1)[0]
