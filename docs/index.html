@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MimicX: Policy-in-the-Loop Supervision Refinement for Video-Driven Humanoid Motion Tracking.">
+  <meta name="theme-color" content="#D45B4C">
+  <link rel="icon" type="image/svg+xml" href="assets/branding/logo-x.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/branding/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/branding/apple-touch-icon.png">
+  <title>MimicX | Policy-in-the-Loop Humanoid Motion Tracking</title>
+  <link rel="stylesheet" href="assets/css/bulma.min.css">
+  <link rel="stylesheet" href="assets/css/mimicx.css">
+  <link rel="stylesheet" href="assets/css/brand.css">
+  <link rel="stylesheet" href="assets/css/research.css">
+  <script>
+    try { document.documentElement.dataset.theme = localStorage.getItem('mimicx-theme') === 'light' ? 'light' : 'dark'; } catch (_) {}
+  </script>
+  <script src="assets/js/mimicx.js" defer></script>
+  <script src="assets/js/showcase.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#overview">Skip to research overview</a>
+  <header class="hero-scene" id="top">
+    <picture class="hero-picture">
+      <img id="hero-image" src="assets/media/hero-tennis.png" fetchpriority="high" alt="Recorded MimicX tennis motion rendered on court; successive poses arranged from left to right">
+    </picture>
+    <nav class="top-nav" aria-label="Project links">
+      <a href="https://github.com/Anonymous-for-Sub/MimicX"><img src="assets/icons/brands/github.svg" alt="">Code <span class="provider">(GitHub)</span></a>
+      <a href="https://example.com" title="arXiv paper link coming soon"><img src="assets/icons/brands/arxiv.svg" alt="">Paper <span class="provider">(arXiv)</span></a>
+      <a href="REPRODUCIBILITY.md"><img src="assets/icons/brands/readthedocs.svg" alt="">Reproduce <span class="provider">(Docs)</span></a>
+      <a href="ARTIFACTS.md"><img src="assets/icons/brands/readthedocs.svg" alt="">Policies <span class="provider">(Files)</span></a>
+      <a href="ARTIFACTS.md"><img src="assets/icons/brands/readthedocs.svg" alt="">Assets <span class="provider">(Files)</span></a>
+    </nav>
+    <div class="hero-copy">
+      <h1 class="brand-wordmark"><img class="brand-full-logo" src="assets/branding/mimicx-full-logo.svg" width="4657" height="1696" alt="MimicX"></h1>
+      <p class="paper-title"><span>MimicX: Policy-in-the-Loop Supervision Refinement</span><br class="desktop-break"> <span>for Video-Driven Humanoid Motion Tracking</span></p>
+    </div>
+    <div class="hero-bottom"><span>Tennis Swing &middot; Recorded policy motion</span><a href="#policies">View policy rollouts</a></div>
+  </header>
+  <section id="showcase" aria-label="Motions and scenes">
+    <div class="showcase-heading"><p>Motions &amp; scenes</p><button id="showcase-toggle" class="rx-icon-button" type="button" title="Pause showcase" aria-label="Pause showcase" aria-pressed="true"><span class="rx-icon icon-pause" aria-hidden="true"></span></button></div>
+    <div class="showcase-viewport" tabindex="0" aria-label="Browse recorded motions and reference scenes">
+      <div class="showcase-track">
+        <figure style="--ratio:2.75"><a href="assets/media/showcase/parkour-sequence.webp" data-viewer="image"><img src="assets/media/showcase/parkour-sequence.webp" width="3300" height="1200" alt="Human and G1 parkour motion across an outdoor collision scene" loading="lazy"></a><figcaption>Parkour <span>Motion sequence</span></figcaption></figure>
+        <figure style="--ratio:1.777778"><a href="assets/media/showcase/forest.mp4" data-viewer="video"><video data-src="assets/media/showcase/forest.mp4" poster="assets/media/showcase/forest.webp" muted playsinline loop preload="none" aria-label="Recorded Forest Traversal policy"></video></a><figcaption>Forest Traversal <span>Policy rollout</span></figcaption></figure>
+        <figure style="--ratio:1.777778"><a href="assets/media/showcase/stairs.mp4" data-viewer="video"><video data-src="assets/media/showcase/stairs.mp4" poster="assets/media/showcase/stairs.webp" muted playsinline loop preload="none" aria-label="Recorded Stair Ascent policy"></video></a><figcaption>Stair Ascent <span>Policy rollout</span></figcaption></figure>
+        <figure style="--ratio:1.777778"><a href="assets/media/showcase/tennis-scene.mp4" data-viewer="video"><video data-src="assets/media/showcase/tennis-scene.mp4" poster="assets/media/showcase/tennis-scene.webp" muted playsinline loop preload="none" aria-label="Recorded Tennis Swing in the registered court scene"></video></a><figcaption>Tennis Swing <span>Registered policy motion</span></figcaption></figure>
+        <figure style="--ratio:1.777778"><a href="assets/media/showcase/parkour-reference.webp" data-viewer="image"><img src="assets/media/showcase/parkour-reference.webp" width="1920" height="1080" alt="G1 reference articulated over parkour scene platforms" loading="lazy"></a><figcaption>Parkour <span>Scene-repaired reference</span></figcaption></figure>
+        <figure style="--ratio:1.777778"><a href="assets/media/showcase/track.mp4" data-viewer="video"><video data-src="assets/media/showcase/track.mp4" poster="assets/media/showcase/track.webp" muted playsinline loop preload="none" aria-label="Recorded Track Run policy"></video></a><figcaption>Track Run <span>Policy rollout</span></figcaption></figure>
+        <figure style="--ratio:1.777778"><a href="assets/media/showcase/platform.mp4" data-viewer="video"><video data-src="assets/media/showcase/platform.mp4" poster="assets/media/showcase/platform.webp" muted playsinline loop preload="none" aria-label="Recorded Platform Jump policy"></video></a><figcaption>Platform Jump <span>Policy rollout</span></figcaption></figure>
+        <figure style="--ratio:1.777778"><a href="assets/media/showcase/football-scene.mp4" data-viewer="video"><video data-src="assets/media/showcase/football-scene.mp4" poster="assets/media/showcase/football-scene.webp" muted playsinline loop preload="none" aria-label="Recorded Football Juggling in its registered scene"></video></a><figcaption>Football Juggling <span>Registered policy motion</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+  <div class="research-nav">
+    <div class="research-nav-inner">
+      <nav aria-label="Page sections">
+        <a href="#overview">Overview</a><a href="#policies">Rollouts</a><a href="#method">Method</a><a href="#results">Results</a><a href="#hloop">HLoop</a>
+      </nav>
+      <button id="theme-toggle" class="rx-icon-button theme-switch" type="button" aria-label="Switch to light theme" title="Switch to light theme" aria-pressed="true"><span class="rx-icon icon-sun" aria-hidden="true"></span><span id="theme-label">Dark</span></button>
+    </div>
+  </div>
+  <main id="research">
+    <section id="overview" class="rx-section rx-intro">
+      <div class="rx-container">
+        <div class="rx-heading"><h2>From human video to robot execution</h2><p>MimicX turns a human demonstration into a humanoid skill, then uses the robot's execution to refine its supervision. Motion reconstruction and retargeting establish a reference; rollout feedback guides what the policy learns next.</p></div>
+        <ol class="rx-stages rx-paper-stages">
+          <li><a data-viewer="image" href="assets/media/showcase/tennis-stage-input.webp"><img src="assets/media/showcase/tennis-stage-input.webp" loading="lazy" alt="Paper-selected original tennis video frame"></a><span>Input video</span><small>Human demonstration</small></li>
+          <li><a data-viewer="image" href="assets/media/showcase/tennis-stage-human.webp"><img src="assets/media/showcase/tennis-stage-human.webp" loading="lazy" alt="Paper-selected human motion reconstruction"></a><span>Human reconstruction</span><small>GVHMR / SMPL-X</small></li>
+          <li><a data-viewer="image" href="assets/media/showcase/tennis-stage-simulation.webp"><img src="assets/media/showcase/tennis-stage-simulation.webp" loading="lazy" alt="Paper-selected learned G1 policy in simulation"></a><span>Policy in simulation</span><small>G1 motion tracking</small></li>
+          <li><a data-viewer="image" href="assets/media/showcase/tennis-stage-scene.webp"><img src="assets/media/showcase/tennis-stage-scene.webp" loading="lazy" alt="The same policy motion rendered in the reconstructed tennis scene"></a><span>Reconstructed scene</span><small>Registered policy motion</small></li>
+        </ol>
+        <p class="rx-source-note">Tennis Swing: the four corresponding stages selected for the paper.</p>
+      </div>
+    </section>
+
+    <section id="policies" class="rx-section rx-band">
+      <div class="rx-container">
+        <div class="rx-heading"><h2>Recorded execution</h2><p>The same motion reference, with fixed or execution-guided supervision.</p></div>
+        <div class="rx-task-tabs" role="tablist" aria-label="Motion task">
+          <button id="task-tennis" role="tab" aria-selected="true" aria-controls="policy-panel" tabindex="0" data-task="tennis">Tennis Swing</button>
+          <button id="task-football" role="tab" aria-selected="false" aria-controls="policy-panel" tabindex="-1" data-task="football">Football Juggling</button>
+          <button id="task-dance" role="tab" aria-selected="false" aria-controls="policy-panel" tabindex="-1" data-task="dance">Dance Sequence</button>
+          <button id="task-kungfu" role="tab" aria-selected="false" aria-controls="policy-panel" tabindex="-1" data-task="kungfu">Kung Fu</button>
+        </div>
+        <div id="policy-panel" role="tabpanel" aria-labelledby="task-tennis">
+          <div class="rx-video-grid">
+            <figure><figcaption><span class="rx-dot baseline"></span>Fixed Reference <span>Fixed supervision</span></figcaption><video id="fixed-video" controls muted playsinline preload="none" poster="assets/media/research/tennis-fixed.jpg" src="assets/media/tennis-fixed.mp4" aria-label="Fixed Reference tennis rollout"></video></figure>
+            <figure><figcaption><span class="rx-dot proposed"></span>MimicX <span>Policy-in-the-loop</span></figcaption><video id="ours-video" controls muted playsinline preload="none" poster="assets/media/research/tennis-ours.jpg" src="assets/media/tennis-ours.mp4" aria-label="MimicX tennis rollout"></video></figure>
+          </div>
+          <div class="rx-player">
+            <button id="pair-toggle" class="rx-icon-button rx-primary" type="button" aria-label="Play both videos" title="Play both videos"><span class="rx-icon icon-play" aria-hidden="true"></span></button>
+            <button id="pair-reset" class="rx-icon-button" type="button" aria-label="Restart both videos" title="Restart both videos"><span class="rx-icon icon-rotate-ccw" aria-hidden="true"></span></button>
+            <input id="pair-seek" type="range" min="0" max="1000" value="0" aria-label="Shared playback position">
+            <output id="pair-time">0.0 s</output>
+          </div>
+          <p id="playback-status" class="rx-source-note" role="status"></p>
+          <div class="rx-task-results" aria-live="polite">
+            <div><span>Body error</span><strong id="task-error">0.241 / 0.157 m</strong></div>
+            <div><span>Execution horizon</span><strong id="task-horizon">322.0 / 801.0 steps</strong></div>
+            <p id="task-note">Tennis reaches strict success in all nine MimicX evaluation rollouts, compared with one of nine for Fixed Reference.</p>
+          </div>
+          <p class="rx-source-note">Readouts show Fixed Reference / MimicX averages over three seeds. Videos show a selected recorded trial. Solid robots are policy execution; translucent robots are motion references.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="method" class="rx-section">
+      <div class="rx-container">
+        <div class="rx-heading"><h2>Execution becomes supervision</h2><p>A registered motion reference establishes the task. Policy feedback determines how that task is practiced and rewarded.</p></div>
+        <figure id="method-overview" class="rx-paper-art">
+          <a href="assets/media/research/refinement.webp" target="_blank" rel="noopener" aria-label="Open the MimicX supervision-refinement diagram"><img src="assets/media/research/refinement.webp" width="2400" loading="lazy" alt="MimicX method: rollout diagnosis conditions training objectives and failure-window practice, followed by verified policy continuation"></a>
+          <figcaption>Policy-in-the-loop supervision refinement. Rollout errors localize difficult motion intervals and affected body regions; bounded candidates coordinate tracking objectives and practice.</figcaption>
+        </figure>
+        <div class="rx-method-notes">
+          <article><span class="rx-step">01</span><h3>Diagnose execution</h3><p>Find difficult time windows and rank local limb, global body and dynamics error channels.</p></article>
+          <article><span class="rx-step">02</span><h3>Refine supervision</h3><p>Continue the accepted policy with coordinated tracking terms and failure-window replay.</p></article>
+          <article><span class="rx-step">03</span><h3>Verify the update</h3><p>Prioritize completion and execution horizon, then tracking fidelity. Retain the current policy when no candidate passes.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="rx-section rx-band">
+      <div class="rx-container">
+        <div class="rx-heading"><h2>Tracking quality and execution</h2><p>Matched continuation budgets across four methods and four video tasks: 48 task-method-seed trials, 144 final verification rollouts.</p></div>
+        <div class="rx-plot-grid">
+          <figure class="result-plot"><a href="assets/media/tracking-channels.svg" target="_blank" rel="noopener"><img loading="lazy" src="assets/media/tracking-channels.svg" alt="Matched-seed relative changes across seven tracking channels"></a><figcaption><strong>Tracking channels</strong><span>Local, global and dynamic errors</span></figcaption></figure>
+          <figure class="result-plot"><a href="assets/media/execution-horizon.svg" target="_blank" rel="noopener"><img loading="lazy" src="assets/media/execution-horizon.svg" alt="Execution horizons for twelve matched task-seed pairs"></a><figcaption><strong>Reliable motion length</strong><span>Twelve matched task-seed pairs</span></figcaption></figure>
+          <figure class="result-plot"><a href="assets/media/training-body-error.svg" target="_blank" rel="noopener"><img loading="lazy" src="assets/media/training-body-error.svg" alt="Dense tennis body-error learning curves for four supervision methods"></a><figcaption><strong>Learning trajectory</strong><span>Body error during continuation</span></figcaption></figure>
+          <figure class="result-plot"><a href="assets/media/hloop-wall-time.svg" target="_blank" rel="noopener"><img loading="lazy" src="assets/media/hloop-wall-time.svg" alt="Five fixed-workload timings for sequential, bulk-synchronous and MimicX-HLoop execution"></a><figcaption><strong>Feedback time</strong><span>Five repeated fixed-policy workloads</span></figcaption></figure>
+        </div>
+        <div class="rx-table-heading"><h3>Four-task comparison</h3><span><span class="rx-dot proposed"></span>MimicX</span></div>
+        <div class="rx-table-scroll" tabindex="0" role="region" aria-label="Four-task continuation results">
+          <table class="rx-table"><caption>Means over three continuation seeds. Body error is the temporal mean of aligned worst-body distance; horizon is the worst first-failure step across repeats, with H + 1 for an unfailed rollout.</caption>
+            <thead><tr><th scope="col">Task</th><th scope="col">Method</th><th scope="col">Strict success</th><th scope="col">Horizon, steps</th><th scope="col">Body error</th></tr></thead>
+            <tbody id="core-results">
+<tr><th scope="row">Tennis Swing</th><td>Fixed Reference</td><td>11.1%</td><td>322.0</td><td>0.241 m</td></tr>
+<tr class="ours-row"><th scope="row">Tennis Swing</th><td>MimicX</td><td>100.0%</td><td>801.0</td><td>0.157 m</td></tr>
+<tr><th scope="row">Football Juggling</th><td>Fixed Reference</td><td>0.0%</td><td>53.7</td><td>0.286 m</td></tr>
+<tr class="ours-row"><th scope="row">Football Juggling</th><td>MimicX</td><td>0.0%</td><td>427.3</td><td>0.244 m</td></tr>
+<tr><th scope="row">Dance Sequence</th><td>Fixed Reference</td><td>0.0%</td><td>193.3</td><td>0.270 m</td></tr>
+<tr class="ours-row"><th scope="row">Dance Sequence</th><td>MimicX</td><td>0.0%</td><td>341.3</td><td>0.244 m</td></tr>
+<tr><th scope="row">Kung Fu Sequence</th><td>Fixed Reference</td><td>0.0%</td><td>97.7</td><td>0.249 m</td></tr>
+<tr class="ours-row"><th scope="row">Kung Fu Sequence</th><td>MimicX</td><td>0.0%</td><td>196.0</td><td>0.141 m</td></tr>
+</tbody>
+          </table>
+        </div>
+        <details class="rx-data"><summary>Numerical data &amp; evaluation protocols</summary><p>All core tasks and component methods are retained in the underlying records. The selected Dance and Kung Fu outputs retain the protected incumbent policy.</p><div id="result-downloads">
+<a href="assets/results/accept_protect_decisions.csv">accept protect decisions (CSV)</a>
+<a href="assets/results/additional_video_tasks.csv">additional video tasks (CSV)</a>
+<a href="assets/results/core_method_task_summary.csv">core method task summary (CSV)</a>
+<a href="assets/results/core_trial_results.csv">core trial results (CSV)</a>
+<a href="assets/results/hloop_timings.csv">hloop timings (CSV)</a>
+<a href="assets/results/motion_breadth.csv">motion breadth (CSV)</a>
+<a href="assets/results/reward_higher_regression_rejection.csv">reward higher regression rejection (CSV)</a>
+<a href="assets/results/sonic_comparison.csv">sonic comparison (CSV)</a>
+<a href="assets/results/tennis_training_dynamics_3000_points.csv">tennis training dynamics 3000 points (CSV)</a>
+</div><p><a href="assets/results/PROTOCOL.md">Metric definitions</a><a href="assets/results/provenance.json">Data provenance</a></p></details>
+      </div>
+    </section>
+
+    <section id="hloop" class="rx-section">
+      <div class="rx-container">
+        <div class="rx-heading"><h2>Faster feedback. The same decision.</h2><p>MimicX-HLoop overlaps GPU rollout and CPU diagnosis along a dependency graph. Selection uses the complete evaluation evidence, regardless of execution order.</p></div>
+        <div class="rx-hloop-layout">
+          <figure class="rx-paper-art"><a href="assets/media/research/verification.webp" target="_blank" rel="noopener" aria-label="Open the repeated-verification and HLoop diagram"><img src="assets/media/research/verification.webp" loading="lazy" width="2400" alt="Execution-priority acceptance and heterogeneous scheduling preserve the selected policy"></a><figcaption>Repeated verification selects policy updates; dependency-ready scheduling accelerates the feedback workload.</figcaption></figure>
+          <div class="rx-timings">
+            <h3>Feedback wall time</h3>
+            <div class="rx-timing"><div><span>Sequential</span><strong>241.221 s</strong></div><meter min="0" max="250" value="241.221">241.221 seconds</meter></div>
+            <div class="rx-timing"><div><span>Bulk-synchronous</span><strong>122.258 s</strong></div><meter min="0" max="250" value="122.258">122.258 seconds</meter></div>
+            <div class="rx-timing rx-ours"><div><span>MimicX-HLoop</span><strong>124.017 s</strong></div><meter min="0" max="250" value="124.017">124.017 seconds</meter></div>
+            <p>All three executors retain the same selection outcomes. Median times across five repetitions.</p>
+            <p class="rx-source-note">Fixed checkpoints; zero PPO updates in this timing study.</p>
+            <a class="rx-text-link" href="HLOOP.md">HLoop protocol <span class="rx-icon icon-arrow-up-right" aria-hidden="true"></span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <dialog id="media-viewer" aria-label="Research media viewer"><div class="viewer-toolbar"><p id="viewer-caption"></p><button id="viewer-close" class="rx-icon-button" type="button" aria-label="Close media" title="Close media"><span class="rx-icon icon-x" aria-hidden="true"></span></button></div><div id="viewer-content"></div></dialog>
+  <footer id="resources">
+    <div class="container research-width">
+      <div class="footer-primary">
+        <a class="footer-brand" href="#top">MimicX</a>
+        <nav class="footer-links" aria-label="Release resources"><a href="https://github.com/Anonymous-for-Sub/MimicX">Code</a><a href="https://example.com">Paper</a><a href="REPRODUCIBILITY.md">Reproduce</a><a href="ARTIFACTS.md">Policies</a><a href="ARTIFACTS.md">Assets</a></nav>
+      </div>
+      <p class="footer-note">MimicX &middot; Policy-in-the-Loop Supervision Refinement for Video-Driven Humanoid Motion Tracking</p>
+    </div>
+  </footer>
+</body>
+</html>
