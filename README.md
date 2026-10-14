@@ -46,12 +46,12 @@ current policy.
 | **Video-to-policy pipeline** | Connects GVHMR / SMPL-X reconstruction, GMR retargeting and PPO tracking in MuJoCo / MjLab. |
 | **Task-aware AutoRefine** | Uses failure windows and body-error channels to propose targeted objectives and curricula. |
 | **Repeated execution gate** | Checks execution improvements and tracking guards before replacing the current policy; records acceptance or protection. |
-| **MimicX-HLoop** | Coordinates CPU/GPU/I/O dependencies with sequential, bulk-synchronous and dependency-ready executors, plus artifact and selection parity checks. |
+| **MimicX-HLoop** | Overlaps GPU rollout and CPU diagnosis while preserving policy-selection decisions. |
 
 Within each automated loop, the registered reference stays fixed while
 training objectives and curricula are refined. Input reference preparation
 is a separate stage. The [method documentation](docs/METHOD.md) describes
-the implemented contract; the [project website](https://anonymous-for-sub.github.io/MimicX/)
+the training and selection procedure; the [project website](https://anonymous-for-sub.github.io/MimicX/)
 contains the visual comparisons and numerical results.
 
 ## Quickstart
@@ -81,7 +81,7 @@ Physics training and evaluation additionally use the
 | **Continue or record a policy** | Use [checkpoint continuation](docs/CONTINUATION.md) and [camera/contact-aware recording](docs/RECORDING_AND_CONTACT.md). |
 | **Learn a skill from a new video** | Follow [video reconstruction, retargeting and tracking](docs/QUICKSTART.md). |
 | **Refine an existing policy** | Create a manifest and [run or resume AutoRefine](docs/QUICKSTART.md#autorefine). |
-| **Reproduce the paper protocols** | Prepare the checksummed inputs using the [reproduction inventory](docs/REPRODUCIBILITY.md). |
+| **Reproduce the paper protocols** | Prepare the inputs using the [reproduction guide](docs/REPRODUCIBILITY.md). |
 
 GPU entry points use the compute allocation provided by your environment.
 Device IDs are process-visible indices; launchers preserve inherited GPU
@@ -100,7 +100,7 @@ Policy and reference preparation is documented in the anonymous artifact guide. 
 
 | Release | Contents |
 | :--- | :--- |
-| [**MimicX-Policies**](docs/ARTIFACTS.md) | Recommended final policies, multi-seed baselines, warmstarts, candidate checkpoints and checkpoint provenance. |
+| [**MimicX-Policies**](docs/ARTIFACTS.md) | Recommended final policies, multi-seed baselines, warmstarts, candidate checkpoints and training settings. |
 | [**MimicX-Assets**](docs/ARTIFACTS.md) | Matching robot references, public configurations, execution records and reproduction metadata. |
 
 The [artifact usage guide](docs/ARTIFACTS.md)
@@ -119,7 +119,7 @@ release uses local artifact paths and omits public hosting account identities.
 | :--- | :--- |
 | [Installation](dependencies/README.md) | External dependencies, pinned backend setup and model requirements |
 | [Video to Policy](docs/QUICKSTART.md) | Reconstruction, retargeting, warmstart training and AutoRefine |
-| [Released Demonstrations](docs/DEMONSTRATIONS.md) | Paired artifact verification and evaluation |
+| [Released Demonstrations](docs/DEMONSTRATIONS.md) | Task-based downloads and policy evaluation |
 | [Continuation](docs/CONTINUATION.md) | Checkpoint recovery and terrain-aware policy continuation |
 | [Recording and Contact](docs/RECORDING_AND_CONTACT.md) | Source-camera recording, baseline playback and contact-causal replay |
 | [Hybrid Control](docs/HYBRID_CONTROL.md) | Parkour actor-prefix and predictive-controller replay |
@@ -127,7 +127,7 @@ release uses local artifact paths and omits public hosting account identities.
 | [Paper Reproduction](docs/REPRODUCIBILITY.md) | Registered inputs, controlled comparisons and evaluation protocols |
 | [HLoop](docs/HLOOP.md) | Heterogeneous execution, scheduling modes and parity checks |
 | [Visualization](docs/VISUALIZATION.md) | Rollout videos, screenshots and exact-state replay |
-| [Release Verification](docs/RELEASE.md) | Tested components and artifact checks |
+| [Release Notes](docs/RELEASE.md) | Available components and tested workflows |
 
 <details>
 <summary><strong>Repository structure</strong></summary>
@@ -142,7 +142,7 @@ release uses local artifact paths and omits public hosting account identities.
 | `dependencies/backend_overlay/` | Tracking backend modifications |
 | `dependencies/assets/` | Attributed third-party visualization assets |
 | `scripts/` | Setup, conversion, training-loop and export entry points |
-| `mimicx/configs/paper/` | Frozen method settings and checksummed input specification |
+| `mimicx/configs/paper/` | Paper experiment settings and input specifications |
 | `docs/` | Project website and reproduction documentation |
 | `tests/` | Portable CPU regression tests |
 
