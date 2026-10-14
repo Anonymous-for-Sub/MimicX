@@ -77,7 +77,8 @@ Physics training and evaluation additionally use the
 
 | Goal | Start here |
 | :--- | :--- |
-| **Run a released policy** | Choose a [recommended policy and matching reference](docs/ARTIFACTS.md). |
+| **Run a released policy** | [Verify a paired policy/reference](docs/DEMONSTRATIONS.md), then evaluate with the pinned runtime. |
+| **Continue or record a policy** | Use [checkpoint continuation](docs/CONTINUATION.md) and [camera/contact-aware recording](docs/RECORDING_AND_CONTACT.md). |
 | **Learn a skill from a new video** | Follow [video reconstruction, retargeting and tracking](docs/QUICKSTART.md). |
 | **Refine an existing policy** | Create a manifest and [run or resume AutoRefine](docs/QUICKSTART.md#autorefine). |
 | **Reproduce the paper protocols** | Prepare the checksummed inputs using the [reproduction inventory](docs/REPRODUCIBILITY.md). |
@@ -107,12 +108,21 @@ covers selective downloads and reconstruction of the exact core input bundle.
 Pair each policy with its recorded reference and configuration: G1 29-DoF
 and historical 23-DoF policies use different model layouts.
 
+The [versioned demonstration entry point](docs/DEMONSTRATIONS.md) supports nine
+standalone PPO policies and a separately identified Parkour hybrid controller.
+Later continuations remain separate from the frozen paper archive. This review
+release uses local artifact paths and omits public hosting account identities.
+
 ## Documentation
 
 | Guide | Scope |
 | :--- | :--- |
 | [Installation](dependencies/README.md) | External dependencies, pinned backend setup and model requirements |
 | [Video to Policy](docs/QUICKSTART.md) | Reconstruction, retargeting, warmstart training and AutoRefine |
+| [Released Demonstrations](docs/DEMONSTRATIONS.md) | Paired artifact verification and evaluation |
+| [Continuation](docs/CONTINUATION.md) | Checkpoint recovery and terrain-aware policy continuation |
+| [Recording and Contact](docs/RECORDING_AND_CONTACT.md) | Source-camera recording, baseline playback and contact-causal replay |
+| [Hybrid Control](docs/HYBRID_CONTROL.md) | Parkour actor-prefix and predictive-controller replay |
 | [Method](docs/METHOD.md) | Diagnosis, proposals, continuation and acceptance rules |
 | [Paper Reproduction](docs/REPRODUCIBILITY.md) | Registered inputs, controlled comparisons and evaluation protocols |
 | [HLoop](docs/HLOOP.md) | Heterogeneous execution, scheduling modes and parity checks |
